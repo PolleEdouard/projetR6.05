@@ -13,14 +13,14 @@ module.exports = new Confidence.Store({
     server: {
         host: 'localhost',
         port: {
-            $param: 'PORT',
+            $env: 'PORT',
             $coerce: 'number',
             $default: 3000
         },
         debug: {
-            $filter: 'NODE_ENV',
+            $filter: { $env: 'NODE_ENV' },
             $default: {
-                log: ['error', 'start'],
+                log: ['error'],
                 request: ['error']
             },
             production: {
@@ -35,35 +35,39 @@ module.exports = new Confidence.Store({
                 options: {}
             },
             {
-                plugin: '@hapipal/schwifty',
-                options: {
-                    $filter: 'NODE_ENV',
-                    $default: {},
-                    $base: {
-                        migrateOnStart: true,
-                        knex: {
-                            client: 'sqlite3',
-                            useNullAsDefault: true,     // Suggested for sqlite3
-                            connection: {
-                                filename: ':memory:'
-                            },
-                            migrations: {
-                                stub: Schwifty.migrationsStubPath
+                plugin: './plugins/swagger'
+            },
+            {
+                plugin  : '@hapipal/schwifty',
+                options : {
+                    $filter    : 'NODE_ENV',
+                    $default   : {},
+                    $base      : {
+                        migrateOnStart : true,
+                        knex           : {
+                            client     : 'mysql',
+                            connection : {
+                                host     : process.env.DB_HOST || 'localhost',
+                                user     : process.env.DB_USER || 'root',
+                                password : process.env.DB_PASSWORD || 'hapi',
+                                database : process.env.DB_DATABASE || 'user',
+                                port     : process.env.DB_PORT || 3307
                             }
                         }
                     },
-                    production: {
-                        migrateOnStart: false
+                    production : {
+                        migrateOnStart : false
                     }
                 }
             },
             {
                 plugin: {
-                    $filter: 'NODE_ENV',
+                    $filter: { $env: 'NODE_ENV' },
                     $default: '@hapipal/hpal-debug',
                     production: Toys.noop
                 }
             }
         ]
     }
+
 });
