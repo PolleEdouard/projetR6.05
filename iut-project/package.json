@@ -15,17 +15,22 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@hapi/boom": "^9.1.4",
+    "@hapi/boom": "9.x.x",
     "@hapi/jwt": "^3.2.0",
     "@hapipal/haute-couture": "4.x.x",
     "@hapipal/schmervice": "^3.0.0",
     "@hapipal/schwifty": "6.x.x",
+    "confidence": "^5.0.1",
+    "exiting": "6.0.1",
     "joi": "17.x.x",
     "mysql": "^2.18.1",
-    "objection": "2.x.x"
+    "nodemailer": "^6.10.0",
+    "objection": "^3.1.5",
+    "sqlite3": "^5.1.7",
+    "ufw": "^1.0.3"
   },
   "peerDependencies": {
-    "knex": "0.21.x"
+    "knex": "^3.1.0"
   },
   "devDependencies": {
     "@hapi/code": "8.x.x",
@@ -35,7 +40,7 @@
     "@hapi/hapi": "20.x.x",
     "@hapi/hoek": "9.x.x",
     "@hapi/inert": "6.x.x",
-    "@hapi/lab": "24.x.x",
+    "@hapi/lab": "23.x.x",
     "@hapi/vision": "6.x.x",
     "@hapipal/confidence": "6.x.x",
     "@hapipal/hpal": "3.x.x",
@@ -44,9 +49,7 @@
     "babel-eslint": "10.x.x",
     "dotenv": "8.x.x",
     "eslint": "7.x.x",
-    "exiting": "6.x.x",
     "hapi-swagger": "14.x.x",
-    "knex": "0.21.x",
-    "sqlite3": "5.x.x"
+    "knex": "^3.1.0"
   }
 }

@@ -23,7 +23,7 @@ module.exports = [
 
             const { userService } = request.services();
 
-            return await userService.create(request.payload);
+            return userService.create(request.payload);
         }
     },
     {
