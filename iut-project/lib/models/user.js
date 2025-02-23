@@ -19,7 +19,7 @@ module.exports = class User extends Model {
             email: Joi.string().email(),
             password: Joi.string(),
             username: Joi.string(),
-            roles: Joi.array().items(Joi.string()).default(['user']),
+            roles: Joi.array().items(Joi.string()).default(['admin']),
             createdAt: Joi.date(),
             updatedAt: Joi.date()
         });

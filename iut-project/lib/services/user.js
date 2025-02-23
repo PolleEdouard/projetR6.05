@@ -6,7 +6,7 @@ const Jwt = require('@hapi/jwt');
 
 module.exports = class UserService extends Service {
 
-    static name = 'userService'; // ✅ Ajout du nom du service
+    static name = 'userService';
 
     async create(user) {
         const { User } = this.server.models();
@@ -24,6 +24,7 @@ module.exports = class UserService extends Service {
     }
 
     delete(id) {
+
         const { User } = this.server.models();
         return User.query().deleteById(id);
     }
@@ -34,6 +35,7 @@ module.exports = class UserService extends Service {
     }
 
     async login(email, password) {
+
         const { User } = this.server.models();
         const user = await User.query().findOne({ email, password });
 
@@ -45,6 +47,7 @@ module.exports = class UserService extends Service {
             {
                 aud: 'urn:audience:iut',
                 iss: 'urn:issuer:iut',
+                id: user.id,
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email,

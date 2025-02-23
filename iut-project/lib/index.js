@@ -10,5 +10,6 @@ exports.plugin = {
 
 
         await HauteCouture.compose(server, options);
+
     }
 };

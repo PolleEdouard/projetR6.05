@@ -11,11 +11,11 @@ module.exports = [
             tags:['api'],
             validate: {
             payload: Joi.object({
-                firstName: Joi.string().required().min(3).example('John').description('Firstname of the user'),
+                firstName: Joi.string().required().min(3).example('Polus').description('Firstname of the user'),
                 lastName: Joi.string().required().min(3).example('Doe').description('Lastname of the user'),
-                email: Joi.string().required().email().example('john@doe.fr').description('Email of the user'),
+                email: Joi.string().required().email().example('polus@doe.fr').description('Email of the user'),
                 password: Joi.string().required().example('password').description('Password of the user'),
-                username: Joi.string().required().example('johndoe').description('Username of the user')
+                username: Joi.string().required().example('polusdoe').description('Username of the user')
             })
         }
     },
@@ -70,11 +70,11 @@ module.exports = [
                     id: Joi.number().integer().required().min(1)
                 }),
                 payload: Joi.object({
-                    firstName: Joi.string().min(3).example('John').description('Firstname of the user'),
+                    firstName: Joi.string().min(3).example('Polus').description('Firstname of the user'),
                     lastName: Joi.string().min(3).example('Doe').description('Lastname of the user'),
-                    email: Joi.string().email().example('john@doe.fr').description('Email of the user'),
+                    email: Joi.string().email().example('polus@doe.fr').description('Email of the user'),
                     password: Joi.string().example('password').description('Password of the user'),
-                    username: Joi.string().example('johndoe').description('Username of the user')
+                    username: Joi.string().example('polusdoe').description('Username of the user')
                 })
             }
         },
@@ -93,7 +93,7 @@ module.exports = [
             auth: false,
             validate: {
                 payload: Joi.object({
-                    email: Joi.string().email().required().example('john@doe.fr').description('Email of the user'),
+                    email: Joi.string().email().required().example('polus@doe.fr').description('Email of the user'),
                     password: Joi.string().required().example('password').description('Password of the user')
                 })
             }
