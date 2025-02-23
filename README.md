@@ -78,7 +78,7 @@ Puis se connecter avec `/user/login` cela va générer un token que l'on va copi
 ![Description de l'image](iut-project/images/authorize.png)
 
 En haut à droite de la page on retrouve ce bouton 
-![Description de l'image](./images/button.png)
+![Description de l'image](iut-project/images/button.png)
 
 lorsqu'on clique dessus on a cette interface (le mot bearer est à écrire soit même )
 on colle le token à la suite de bearer avec un espace
