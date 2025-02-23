@@ -75,11 +75,11 @@ Cependant pour la plupart des routes on doit être connecté.
 On commence donc par créer un utilisateur avec la route `POST /user`
 
 Puis se connecter avec `/user/login` cela va générer un token que l'on va copier (voir image ci-dessous)
-![Description de l'image](iut-project/images/authorize.png)
+![Description de l'image](iut-project/images/token.png)
 
 En haut à droite de la page on retrouve ce bouton 
 ![Description de l'image](iut-project/images/button.png)
 
 lorsqu'on clique dessus on a cette interface (le mot bearer est à écrire soit même )
 on colle le token à la suite de bearer avec un espace
-![Description de l'image](./images/authorize.png)
+![Description de l'image](iut-project/images/authorize.png)
