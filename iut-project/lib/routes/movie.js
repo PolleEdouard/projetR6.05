@@ -24,14 +24,14 @@ module.exports = [
         },
         handler: async (request, h) => {
             try {
-                console.log("📌 Requête reçue pour créer un film:", request.payload);
+                console.log("Requête reçue pour créer un film:", request.payload);
 
                 const { movieService } = request.server.services();
                 const newMovie = await movieService.create(request.payload);
 
                 return h.response(newMovie).code(201);
             } catch (error) {
-                console.error("❌ Erreur lors de la création du film:", error);
+                console.error("Erreur lors de la création du film:", error);
                 return Boom.internal("Erreur interne lors de la création du film");
             }
         }

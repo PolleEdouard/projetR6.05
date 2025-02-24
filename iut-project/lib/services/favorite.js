@@ -32,7 +32,7 @@ module.exports = class FavoriteService extends Service {
     }
 
     async getFavorites(userId) {
-        const { Favorite, Movie } = this.server.models();
+        const { Favorite} = this.server.models();
 
         return Favorite.query()
             .where('user_id', userId)
