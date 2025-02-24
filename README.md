@@ -53,6 +53,10 @@ Pour recuperer et lancer le projet, utiliser les commandes suivantes :
 ```bash
  git clone https://github.com/PolleEdouard/projetR6.05.git
 ```
+On s'assure d'être sur la branche main avant de continuer 
+```bash
+ git checkout main 
+```
 Placer vous à la racine du projet puis executer :
 ```bash
  npm i 
