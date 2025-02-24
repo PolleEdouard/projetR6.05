@@ -102,14 +102,14 @@ module.exports = class MailService {
             console.error("Erreur lors de l'envoi des mails : ", error);
         }
     }
-    async sendEmailWithAttachment(user, attachmentPath) {
+    async sendEmailWithAttachment(to, attachmentPath) {
         await this.setupTransporter();
 
         try {
             const info = await this.transporter.sendMail({
                     from: `"Filmothèque" <${this.transporter.options.auth.user}>`,
-                    to: user.email,
-                    attachments: [{ path: attachmentPath }],
+                    to,
+                    attachments: [{ filename: 'films.csv', path: attachmentPath }],
                     subject: `Liste CSV`,
                     text: `Voici le csv `,
             });

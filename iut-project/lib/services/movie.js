@@ -3,6 +3,9 @@
 const { Service } = require('@hapipal/schmervice');
 const Boom = require('@hapi/boom');
 const Jwt = require('@hapi/jwt');
+const { Parser } = require('json2csv');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = class MovieService extends Service {
     static name = 'MovieService';
@@ -31,6 +34,28 @@ module.exports = class MovieService extends Service {
     delete(id) {
         const { Movie } = this.server.models();
         return Movie.query().deleteById(id);
+    }
+    async exportFilmInCsv() {
+        const { Movie } = this.server.models();
+        const movies = await Movie.query();
+
+        if (!movies || movies.length === 0) {
+            throw new Error("Aucun film trouvé pour l'export.");
+        }
+
+
+        const exportDir = path.join(__dirname, '../exports');
+        if (!fs.existsSync(exportDir)) {
+            fs.mkdirSync(exportDir, { recursive: true });
+        }
+
+        const parser = new Parser();
+        const csv = parser.parse(movies);
+
+        const filePath = path.join(exportDir, `ListeFilms_${Date.now()}.csv`);
+        fs.writeFileSync(filePath, csv);
+
+        return filePath;
     }
     async update(movieId, movieData) {
         const { Movie, Favorite, User } = this.server.models();
@@ -62,5 +87,6 @@ module.exports = class MovieService extends Service {
 
         return updatedMovie;
     }
+
 
 }
